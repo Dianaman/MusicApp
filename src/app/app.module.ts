@@ -2,19 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {MaterialModule} from '@angular/material';
-import { PostComponent } from './post/post.component';
+import { MatToolbarModule, MatProgressBarModule,
+MatSidenavModule } from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {AppShellModule} from '@angular/app-shell';
+import { SideMenuComponent } from './share/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostComponent
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatProgressBarModule,
     AppShellModule.runtime(),
     HttpModule
   ],
