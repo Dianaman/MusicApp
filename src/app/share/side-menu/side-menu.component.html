@@ -1,4 +1,5 @@
 <div *ngFor="let link of links"class="menu-item" 
-	[routerLink]="link.link" routerLinkActive="menu-item-selected">
+	[routerLink]="link.link" routerLinkActive="menu-item-selected"
+	(click)="seleccionarItem()">
 	{{link.title}}
 </div>

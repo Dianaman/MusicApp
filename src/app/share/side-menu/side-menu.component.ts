@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
+	@Output() cerrarMenu:EventEmitter<void> = new EventEmitter<void>();
+
 	public links = [
 		{
 			title: 'home',
@@ -22,9 +24,13 @@ export class SideMenuComponent implements OnInit {
 		}
 	]
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
+
+	public seleccionarItem(){
+		this.cerrarMenu.emit();
+	}
 
 }
