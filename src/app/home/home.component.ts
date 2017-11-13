@@ -68,4 +68,10 @@ export class HomeComponent implements OnInit {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+
+    public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData:number[] = [350, 450, 100];
+  public doughnutChartType:string = 'doughnut';
+ 
 }

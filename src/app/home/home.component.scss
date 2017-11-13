@@ -4,10 +4,17 @@
 	justify-content: center;
 	align-items:center;
 
-	.row {
-		width: 80%;
-		height: 80%;
+	@media(max-width: 700px)
+	{
+		flex-wrap: wrap;
+	}
+
+	mat-card {
+		width: 400px;
+		height: 400px;
 		display:flex;
-		flex-direction: row;
+		justify-content: center;
+		align-items:center;
+		margin: 5px;
 	}
 }

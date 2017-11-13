@@ -5,7 +5,7 @@ import { APP_ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MatToolbarModule, MatProgressBarModule,
-MatSidenavModule } from '@angular/material';
+MatSidenavModule, MatCardModule } from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {AppShellModule} from '@angular/app-shell';
 import { SideMenuComponent } from './share/side-menu/side-menu.component';
@@ -29,6 +29,7 @@ import { ChartsModule } from 'ng2-charts';
     MatToolbarModule,
     MatSidenavModule,
     MatProgressBarModule,
+    MatCardModule,
     ChartsModule,
     AppShellModule.runtime(),
     HttpModule,

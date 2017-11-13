@@ -28,6 +28,10 @@ const forceSSL = function() {
 // middleware
 app.use(forceSSL());
 app.use(express.static(__dirname + '/dist'));
+app.use('/js', express.static(__dirname + '/dist/js'));
+app.use('/bower_components', express.static(__dirname + '/dist/../bower_components'));
+app.use('/css', express.static(__dirname + '/dist/css'));
+app.use('/partials', express.static(__dirname + '/dist/partials'));
 // Start the app by listening on the default
 // Heroku port
 app.listen(process.env.PORT || 8080);
