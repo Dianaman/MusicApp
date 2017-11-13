@@ -2,6 +2,7 @@
   "name": "hello-mobile",
   "version": "0.0.0",
   "license": "MIT",
+  "server": "lite-server -c config.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
