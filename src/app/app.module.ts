@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { SingComponent } from './sing/sing.component';
 import { FeelComponent } from './feel/feel.component';
 import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
     MatToolbarModule,
     MatSidenavModule,
     MatProgressBarModule,
+    ChartsModule,
     AppShellModule.runtime(),
     HttpModule,
     RouterModule.forRoot(
