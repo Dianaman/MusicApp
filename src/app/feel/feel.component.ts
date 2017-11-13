@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
 
@@ -11,11 +10,19 @@ import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
 export class FeelComponent implements OnInit {
   static GATT_CHARACTERISTIC_BATTERY_LEVEL = 'battery_level';
   static GATT_PRIMARY_SERVICE = 'battery_service';
-
+//https://github.com/manekinekko/angular-web-bluetooth/blob/master/dist/lib/bluetooth.service.d.ts
   constructor(private ble:BluetoothCore) { }
 
   ngOnInit() {
   }
+
+  discover() {
+    this.ble.discover({
+      filters: [],
+      acceptAllDevices: true
+    });
+  }
+
   getFakeValue() {
     this.ble.fakeNext();
   }

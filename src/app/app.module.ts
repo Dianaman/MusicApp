@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { MatToolbarModule, MatProgressBarModule,
+import { MatToolbarModule, MatProgressBarModule, MatButtonModule, 
 MatSidenavModule, MatCardModule } from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {AppShellModule} from '@angular/app-shell';
@@ -26,6 +26,7 @@ import { ChartsModule } from 'ng2-charts';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
     MatProgressBarModule,
