@@ -1,9 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primary">
-  <span>{{title}}</span>
-</mat-toolbar>
 
-<mat-progress-bar mode="indeterminate" *shellRender></mat-progress-bar>
-<div *shellNoRender>
-  <side-menu></side-menu>
-</div>
+
+<mat-sidenav-container>
+	<mat-sidenav #sidenav>
+		<side-menu></side-menu>
+	</mat-sidenav>
+
+	<mat-toolbar color="primary" class="header">
+		<span><i class="fa fa-bars" aria-hidden="true" (click)="sidenav.open()"></i></span>
+		<span>{{title}}</span>
+		<span></span>
+	</mat-toolbar>
+
+	<div class="body">
+		<router-outlet></router-outlet>
+	</div>
+
+	<mat-toolbar color="primary" class="footer">
+	<span></span>
+
+		<div class="icon-link">
+			<i class="fa fa-music" aria-hidden="true"></i>
+			<span>Elige</span>
+		</div>
+		<div class="icon-link">
+			<i class="fa fa-microphone" aria-hidden="true"></i>
+			<span>Canta</span>
+		</div>
+		<div class="icon-link">
+			<i class="fa fa-headphones" aria-hidden="true"></i>
+			<span>Siente</span>
+		</div>
+
+	<span></span>
+	</mat-toolbar>
+</mat-sidenav-container>

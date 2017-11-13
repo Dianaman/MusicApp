@@ -1,0 +1,22 @@
+:host {
+	background-color: black;
+	display: flex;
+	height: 100%;
+	color: white;
+  	width: 350px;
+  	display: block;
+}
+
+.menu-item {
+	padding: 5px 5px 5px 20px;
+	height: 48px;
+	line-height: 48px;
+	vertical-align: middle;
+	font-size: 16px;
+	font-family: verdana;
+	text-transform: uppercase;
+}	
+.menu-item-selected {
+	color:silver;
+	background-color: royalblue;
+}

@@ -1,0 +1,25 @@
+:host {
+
+	.footer {
+		position: fixed;
+		bottom: 0px;
+	}
+
+	.body {
+		margin: 50px;
+	}
+
+	mat-sidenav-container {
+		height: 100vh;
+	}
+
+	.icon-link {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		span {
+			line-height: 15px;
+			font-size: 10px;
+		}
+	}
+}

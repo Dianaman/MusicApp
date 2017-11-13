@@ -1,5 +1,4 @@
-<mat-sidenav-container>
-  <mat-sidenav>
-    fdfdfd
-  </mat-sidenav>
-</mat-sidenav-container>
+<div *ngFor="let link of links"class="menu-item" 
+	[routerLink]="link.link" routerLinkActive="menu-item-selected">
+	{{link.title}}
+</div>
