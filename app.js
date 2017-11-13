@@ -1,12 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// ...
-// For all GET requests, send back index.html
-// so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+
 // Run the app by serving the static files
 // in the dist directory
 // If an incoming request uses
@@ -27,11 +22,19 @@ const forceSSL = function() {
 // to use the forceSSL
 // middleware
 app.use(forceSSL());
+
 app.use(express.static(__dirname + '/dist'));
+
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/bower_components', express.static(__dirname + '/../bower_components'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/partials', express.static(__dirname + '/partials'));
+
+// For all GET requests, send back index.html
+// so that PathLocationStrategy can be used
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
 // Start the app by listening on the default
 // Heroku port
 app.listen(process.env.PORT || 8080);
