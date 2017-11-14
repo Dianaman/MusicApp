@@ -18,9 +18,20 @@ export class FeelComponent implements OnInit {
 
   discover() {
     this.ble.discover({
-      filters: [],
+      filters: this.anyDeviceFilter(),
       acceptAllDevices: true
     });
+  }
+
+  anyDeviceFilter() {
+    // This is the closest we can get for now to get all devices.
+    // https://github.com/WebBluetoothCG/web-bluetooth/issues/234
+    // acceptAllDevices puto. no funcionaaa
+    const arr = [];
+       Array.from('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        .forEach(c => arr.push({namePrefix: c}));
+
+    return arr;
   }
 
   getFakeValue() {
