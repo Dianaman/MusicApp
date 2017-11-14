@@ -10,12 +10,15 @@ import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
 export class FeelComponent implements OnInit {
   static GATT_CHARACTERISTIC_BATTERY_LEVEL = 'battery_level';
   static GATT_PRIMARY_SERVICE = 'battery_service';
-//https://github.com/manekinekko/angular-web-bluetooth/blob/master/dist/lib/bluetooth.service.d.ts
+
+  public valor;
+
   constructor(private ble:BluetoothCore) { }
 
   ngOnInit() {
   }
 
+  //https://github.com/manekinekko/angular-web-bluetooth/blob/master/dist/lib/bluetooth.service.d.ts
   discover() {
     this.ble.discover({
       filters: this.anyDeviceFilter(),
@@ -62,8 +65,7 @@ export class FeelComponent implements OnInit {
     console.log('Getting Battery Service...');
 
     try {
-        return this.ble
-
+        this.valor = this.ble
           // 1) call the discover method will trigger the discovery process (by the browser)
           .discover$({ filters: this.anyDeviceFilter(), optionalServices: [FeelComponent.GATT_PRIMARY_SERVICE] })
           // 2) get that service
@@ -74,6 +76,8 @@ export class FeelComponent implements OnInit {
           .mergeMap(characteristic => this.ble.readValue$(characteristic))
             // 5) on that DataView, get the right value
           .map(value => value.getUint8(0));
+
+          return this.valor;
     }
     catch(e) {
       console.error('Oops! can not read value from %s');

@@ -5,3 +5,7 @@
 <button mat-raised-button (click)="discover()">
     <i class="fa fa-bluetooth" aria-hidden="true"></i> Buscar
 </button>
+
+<mat-card>
+	<h1>Nivel de batería: {{valor ? valor : -}}%</h1>
+</mat-card>
