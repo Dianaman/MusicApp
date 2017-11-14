@@ -65,7 +65,7 @@ export class FeelComponent implements OnInit {
     console.log('Getting Battery Service...');
 
     try {
-        this.valor = this.ble
+        return this.ble
           // 1) call the discover method will trigger the discovery process (by the browser)
           .discover$({ filters: this.anyDeviceFilter(), optionalServices: [FeelComponent.GATT_PRIMARY_SERVICE] })
           // 2) get that service
@@ -75,9 +75,10 @@ export class FeelComponent implements OnInit {
           // 4) ask for the value of that characteristic (will return a DataView)
           .mergeMap(characteristic => this.ble.readValue$(characteristic))
             // 5) on that DataView, get the right value
-          .map(value => value.getUint8(0));
-
-          return this.valor;
+          .map(value => {
+            this.valor = value.getUint8(0);
+            return value.getUint8(0);
+          });
     }
     catch(e) {
       console.error('Oops! can not read value from %s');
