@@ -54,9 +54,6 @@ export class FeelComponent implements OnInit {
       .map(value => value.getUint8(0));
   }
 
-  getBattery() {
-    this.getBatteryLevel.subscribe(batLevel => this.valor = batLevel);
-  }
 
   /**
    * Get Battery Level GATT Characteristic value.
