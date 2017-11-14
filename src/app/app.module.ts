@@ -14,6 +14,15 @@ import { SingComponent } from './sing/sing.component';
 import { FeelComponent } from './feel/feel.component';
 import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
 import { ChartsModule } from 'ng2-charts';
+import { ErrorHandler } from '@angular/core';
+
+class MyErrorHandler implements ErrorHandler {
+  handleError(error) {
+    if(String(error).indexOf('Your browser does not support Smart Bluetooth') !== -1){
+      alert('Your browser does not support Smart Bluetooth');
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -41,7 +50,7 @@ import { ChartsModule } from 'ng2-charts';
       enableTracing: true
     })
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: MyErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
