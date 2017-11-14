@@ -10,7 +10,11 @@ let appShellFilesToCache = [
   './inline.bundle.js',
   './styles.bundle.js',
   './vendor.bundle.js',
-  './main.bundle.js'
+  './main.bundle.js',
+  './js',
+  './css',
+  './partials',
+  './dir/index.js'
 ];
 
 self.addEventListener('install', (e) => {

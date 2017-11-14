@@ -76,7 +76,9 @@ export class FeelComponent implements OnInit {
           .mergeMap(characteristic => this.ble.readValue$(characteristic))
             // 5) on that DataView, get the right value
           .map(value => {
-            this.valor = value.getUint8(0);
+            console.log(value)
+            console.log(value.getUint8(0))
+            this.valor = value;
             return value.getUint8(0);
           });
     }
