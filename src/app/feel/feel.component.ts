@@ -54,6 +54,10 @@ export class FeelComponent implements OnInit {
       .map(value => value.getUint8(0));
   }
 
+  getBattery() {
+    this.getBatteryLevel.subscribe(batLevel => this.valor = batLevel);
+  }
+
   /**
    * Get Battery Level GATT Characteristic value.
    * This logic is specific to this service, this is why we can't abstract it elsewhere.
@@ -76,9 +80,7 @@ export class FeelComponent implements OnInit {
           .mergeMap(characteristic => this.ble.readValue$(characteristic))
             // 5) on that DataView, get the right value
           .map(value => {
-            console.log(value)
-            console.log(value.getUint8(0))
-            this.valor = value;
+            alert(value)
             return value.getUint8(0);
           });
     }
