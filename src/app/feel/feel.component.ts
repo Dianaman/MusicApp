@@ -54,6 +54,10 @@ export class FeelComponent implements OnInit {
       .map(value => value.getUint8(0));
   }
 
+  getBattery(){
+    this.getBatteryLevel().subscribe(valor => this.valor = valor);
+  }
+
 
   /**
    * Get Battery Level GATT Characteristic value.
@@ -63,7 +67,7 @@ export class FeelComponent implements OnInit {
    * @return {Observable<number>} Emites the value of the requested service read from the device
    */
    getBatteryLevel(): Observable<number> {
-    console.log('Getting Battery Service...');
+    alert('Tomando el nivel de batería...');
 
     try {
         return this.ble
@@ -82,7 +86,7 @@ export class FeelComponent implements OnInit {
           });
     }
     catch(e) {
-      console.error('Oops! can not read value from %s');
+      alert('Oops! no se pudo leer el valor de %s');
     }
 
   }
